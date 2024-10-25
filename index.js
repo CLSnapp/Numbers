@@ -10,28 +10,73 @@ class Numbers {
     }
   }
   count() {
-    //return the count of numbers in data
+    return this.data.length;
   }
   printNumbers() {
-    //print the numbers in data
+    this.data.forEach((number, index) => {
+      console.log(`Number: ${number}`, `Index: ${index}`);
+    });
   }
   odds() {
-    //return the odd numbers in data
+    let odds = [];
+    for (let i = 0; i < this.data.length; i++) {
+      const num = this.data[i];
+      if (num % 2 !== 0) {
+        odds.push(num);
+      }
+    }
+    return odds;
   }
+
   evens() {
-    //return the even numbers in data
+    let evens = [];
+    for (let i = 0; i < this.data.length; i++) {
+      const num = this.data[i];
+      if (num % 2 === 0) {
+        evens.push(num);
+      }
+    }
+    return evens;
   }
+
   sum() {
-    //return the sum of the numbers
+    let sum = 0;
+    for (let i = 0; i < this.data.length; i++) {
+      const num = this.data[i];
+      sum += num;
+    }
+    return sum;
   }
+
   product() {
-    //return the product of the numbers
+    let product = 1; //WHY DOES THIS WORK WITH 1 AND NOT 0
+    for (let i = 0; i < this.data.length; i++) {
+      const num = this.data[i];
+      product *= num;
+    }
+    return product;
   }
+
   greaterThan(target) {
-    //return the numbers greater than the target
+    let great = [];
+    for (let i = 0; i < this.data.length; i++) {
+      const num = this.data[i];
+      if (num > target) {
+        great.push(num);
+      }
+    }
+    return great;
   }
+
   howMany(target) {
-    //return the count of a given number
+    let count = 0;
+    for (let i = 0; i < this.data.length; i++) {
+      const num = this.data[i];
+      if (num === target) {
+        count++;
+      }
+    }
+    return count;
   }
 }
 
