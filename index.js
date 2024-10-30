@@ -18,26 +18,34 @@ class Numbers {
     });
   }
   odds() {
-    let odds = [];
-    for (let i = 0; i < this.data.length; i++) {
-      const num = this.data[i];
-      if (num % 2 !== 0) {
-        odds.push(num);
-      }
-    }
-    return odds;
+    const num = this.data;
+    const odd = num.filter((number) => number % 2 !== 0);
+    return odd;
   }
+  //   let odds = [];
+  //   for (let i = 0; i < this.data.length; i++) {
+  //     const num = this.data[i];
+  //     if (num % 2 !== 0) {
+  //       odds.push(num);
+  //     }
+  //   }
+  //   return odds;
+  // }
 
   evens() {
-    let evens = [];
-    for (let i = 0; i < this.data.length; i++) {
-      const num = this.data[i];
-      if (num % 2 === 0) {
-        evens.push(num);
-      }
-    }
-    return evens;
+    const num = this.data;
+    const even = num.filter((number) => number % 2 === 0);
+    return even;
   }
+  //   let evens = [];
+  //   for (let i = 0; i < this.data.length; i++) {
+  //     const num = this.data[i];
+  //     if (num % 2 === 0) {
+  //       evens.push(num);
+  //     }
+  //   }
+  //   return evens;
+  // }
 
   sum() {
     let sum = 0;
@@ -49,37 +57,46 @@ class Numbers {
   }
 
   product() {
-    let product = 1; //WHY DOES THIS WORK WITH 1 AND NOT 0
-    for (let i = 0; i < this.data.length; i++) {
-      const num = this.data[i];
-      product *= num;
-    }
-    return product;
+    return this.data.reduce((product, num) => product * num, 1);
   }
+
+  //   let product = 1; //STARTS FROM AN INITIAL VALUE OF 1 CAUSE MULTIPLYING BY 0 IS 0
+  //   for (let i = 0; i < this.data.length; i++) {
+  //     const num = this.data[i];
+  //     product *= num;
+  //   }
+  //   return product;
+  // }
 
   greaterThan(target) {
-    let great = [];
-    for (let i = 0; i < this.data.length; i++) {
-      const num = this.data[i];
-      if (num > target) {
-        great.push(num);
-      }
-    }
-    return great;
+    return this.data.filter(num => num > target);
   }
+  
+  //   let great = [];
+  //   for (let i = 0; i < this.data.length; i++) {
+  //     const num = this.data[i];
+  //     if (num > target) {
+  //       great.push(num);
+  //     }
+  //   }
+  //   return great;
+  // }
 
   howMany(target) {
-    let count = 0;
-    for (let i = 0; i < this.data.length; i++) {
-      const num = this.data[i];
-      if (num === target) {
-        count++;
-      }
-    }
-    return count;
+    return this.data.filter(num => num === target).length;
   }
-}
 
+//     let count = 0;
+//     for (let i = 0; i < this.data.length; i++) {
+//       const num = this.data[i];
+//       if (num === target) {
+//         count++;
+//       }
+//     }
+//     return count;
+//   }
+// }
+}
 //Prompt the user for a list of integers separated by commas
 const str = prompt("enter some numbers, like this", "1,2,3,3,5,9");
 
